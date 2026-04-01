@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kashish Shah (Kash) — Technology Leader & Salesforce Architect</title>
+  <meta name="description" content="Kashish Shah — Technology leader and enterprise architect with 10+ years of experience in Salesforce platform engineering, public sector solutions, and partner ecosystem development.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #111118;
+      --bg-card: #16161f;
+      --bg-card-hover: #1c1c28;
+      --text-primary: #e8e8ed;
+      --text-secondary: #9494a8;
+      --text-muted: #5c5c72;
+      --accent: #00d4aa;
+      --accent-dim: #00d4aa22;
+      --accent-glow: #00d4aa44;
+      --accent-secondary: #6366f1;
+      --accent-secondary-dim: #6366f122;
+      --border: #222233;
+      --border-light: #2a2a3d;
+      --gradient-1: linear-gradient(135deg, #00d4aa, #6366f1);
+      --gradient-2: linear-gradient(135deg, #6366f1, #ec4899);
+      --font-display: 'Sora', sans-serif;
+      --font-mono: 'DM Mono', monospace;
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--font-display);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--accent); color: var(--bg-primary); }
+
+    /* ===== NOISE OVERLAY ===== */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(20px);
+      background: rgba(10, 10, 15, 0.8);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.4s, background 0.4s;
+    }
+
+    nav.scrolled {
+      border-bottom-color: var(--border);
+      background: rgba(10, 10, 15, 0.95);
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: -0.03em;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s var(--ease-out-expo);
+    }
+
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-toggle { display: none; cursor: pointer; background: none; border: none; }
+    .nav-toggle span {
+      display: block; width: 24px; height: 2px; background: var(--text-primary);
+      margin: 5px 0; transition: all 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .hero-bg .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .hero-bg .orb-1 {
+      width: 500px; height: 500px;
+      background: var(--accent);
+      top: -10%; right: -5%;
+      animation-delay: 0s;
+    }
+
+    .hero-bg .orb-2 {
+      width: 400px; height: 400px;
+      background: var(--accent-secondary);
+      bottom: -10%; left: -5%;
+      animation-delay: -4s;
+    }
+
+    .hero-bg .orb-3 {
+      width: 300px; height: 300px;
+      background: #ec4899;
+      top: 50%; left: 40%;
+      animation-delay: -2s;
+      opacity: 0.2;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -20px) scale(1.05); }
+      66% { transform: translate(-20px, 20px) scale(0.95); }
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--border-light);
+      border-radius: 100px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out-expo) 0.2s forwards;
+    }
+
+    .hero-tag .dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out-expo) 0.4s forwards;
+    }
+
+    .hero h1 .gradient {
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-description {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 680px;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out-expo) 0.6s forwards;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out-expo) 0.8s forwards;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.8rem;
+      border-radius: 100px;
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s var(--ease-out-expo);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg-primary);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 30px var(--accent-glow);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border-light);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out-expo) 1s forwards;
+    }
+
+    .stat h3 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+    }
+
+    .stat p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.25rem;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== SECTIONS COMMON ===== */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    /* ===== REVEAL ANIMATION ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ===== ABOUT ===== */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .about-text p {
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+      font-size: 1.02rem;
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .highlight-card {
+      padding: 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      transition: all 0.4s var(--ease-out-expo);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .highlight-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: var(--gradient-1);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s var(--ease-out-expo);
+    }
+
+    .highlight-card:hover { border-color: var(--border-light); transform: translateY(-4px); }
+    .highlight-card:hover::before { transform: scaleX(1); }
+
+    .highlight-card .icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .highlight-card h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .highlight-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ===== EXPERIENCE TIMELINE ===== */
+    .timeline { position: relative; }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--accent-secondary), transparent);
+    }
+
+    .timeline-item {
+      padding-left: 3rem;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--bg-primary);
+      border: 2px solid var(--accent);
+      transition: all 0.3s;
+    }
+
+    .timeline-item:hover::before {
+      background: var(--accent);
+      box-shadow: 0 0 15px var(--accent-glow);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-company {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .timeline-date {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      background: var(--accent-dim);
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+    }
+
+    .timeline-role {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .timeline-bullets { list-style: none; }
+
+    .timeline-bullets li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.6rem;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .timeline-bullets li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+
+    .timeline-clients {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .client-tag {
+      font-size: 0.72rem;
+      padding: 0.25rem 0.65rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      transition: all 0.3s;
+    }
+
+    .client-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ===== PROJECTS ===== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all 0.4s var(--ease-out-expo);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), var(--accent-dim), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+
+    .project-card:hover { border-color: var(--border-light); transform: translateY(-6px); }
+    .project-card:hover::after { opacity: 1; }
+
+    .project-card .badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      background: var(--accent-dim);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .project-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ===== SKILLS ===== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-category {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      transition: all 0.4s var(--ease-out-expo);
+    }
+
+    .skill-category:hover { border-color: var(--border-light); transform: translateY(-4px); }
+
+    .skill-category h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      font-size: 0.78rem;
+      padding: 0.3rem 0.7rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      transition: all 0.3s;
+    }
+
+    .skill-tag:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+
+    /* ===== CERTIFICATIONS ===== */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: all 0.3s var(--ease-out-expo);
+    }
+
+    .cert-item:hover { border-color: var(--accent); transform: translateX(6px); }
+
+    .cert-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--accent-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .cert-item h4 { font-size: 0.88rem; font-weight: 500; }
+
+    /* ===== AWARDS ===== */
+    .awards-list { display: flex; flex-direction: column; gap: 1rem; }
+
+    .award-item {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      transition: all 0.4s var(--ease-out-expo);
+    }
+
+    .award-item:hover { border-color: var(--accent); transform: translateX(8px); }
+
+    .award-year {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+      background: var(--accent-dim);
+      padding: 0.3rem 0.8rem;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    .award-item h4 { font-size: 1rem; font-weight: 500; }
+
+    /* ===== EDUCATION ===== */
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .edu-card {
+      padding: 2rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      transition: all 0.4s var(--ease-out-expo);
+    }
+
+    .edu-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+
+    .edu-card .degree {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .edu-card .school {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .edu-card .year {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+
+    /* ===== CONTACT ===== */
+    #contact {
+      text-align: center;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.9rem 1.6rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s var(--ease-out-expo);
+    }
+
+    .contact-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px var(--accent-dim);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    /* ===== DIVIDER ===== */
+    .section-divider {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border-light), transparent);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-secondary);
+        padding: 2rem;
+        gap: 1.5rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-toggle { display: block; }
+      .hero-stats { flex-direction: column; gap: 1.5rem; }
+      .hero { padding: 7rem 1.5rem 3rem; }
+      section { padding: 4rem 1.5rem; }
+      .timeline-header { flex-direction: column; }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav>
+  <div class="nav-logo">KS</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="hero-grid"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-tag">
+      <span class="dot"></span>
+      U.S. Citizen &middot; Available for opportunities
+    </div>
+    <h1>
+      Hi, I'm <span class="gradient">Kashish Shah</span>.<br>
+      I build the future of<br>public sector tech.
+    </h1>
+    <p class="hero-description">
+      Technology leader and enterprise architect with 10+ years of experience in Salesforce platform engineering,
+      public sector solution delivery, AI-powered tooling, and partner ecosystem development.
+    </p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Get in Touch ↗</a>
+      <a href="#experience" class="btn btn-secondary">View Experience</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <h3>10+</h3>
+        <p>Years Experience</p>
+      </div>
+      <div class="stat">
+        <h3>$56B+</h3>
+        <p>Programs Supported</p>
+      </div>
+      <div class="stat">
+        <h3>10</h3>
+        <p>Salesforce Certs</p>
+      </div>
+      <div class="stat">
+        <h3>50%</h3>
+        <p>Effort Reduced via AI</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="reveal">
+    <div class="section-label">// About Me</div>
+    <h2 class="section-title">Scaling Technology for<br>Public Good</h2>
+  </div>
+  <div class="about-text reveal reveal-delay-1">
+    <p>
+      I'm a full-stack engineer and technical leader who thrives at the intersection of enterprise cloud architecture
+      and mission-critical public sector delivery. From modernizing federal agency workflows to building AI-powered
+      accelerators, I bring deep expertise in Salesforce platform engineering, OmniStudio, and Industry Clouds.
+    </p>
+    <p>
+      My career has spanned building 0→1 products, architecting solutions for billion-dollar government programs
+      (SBA SVOG, NTIA Broadband, CCWIS), and enabling partner ecosystems to deliver at scale in regulated environments.
+      I'm passionate about translating ambiguous requirements into robust, user-centered solutions — and about
+      enabling teams and partners to do the same.
+    </p>
+    <p>
+      Currently, I serve as Director of Technical Architecture at Synaptic Advisors, where I lead a team of architects,
+      drive pre-sales and RFP engagements, and build AI-powered migration tools that have cut onboarding effort by 50%.
+    </p>
+  </div>
+  <div class="about-highlights reveal reveal-delay-2">
+    <div class="highlight-card">
+      <div class="icon">🏛️</div>
+      <h4>Public Sector Expert</h4>
+      <p>Deep domain expertise in regulated government environments — HUD, FDIC, SBA, NTIA, state agencies.</p>
+    </div>
+    <div class="highlight-card">
+      <div class="icon">🤖</div>
+      <h4>AI/LLM Engineering</h4>
+      <p>Built LLM-powered tools using Python, FastAPI, and GPT/Claude that reduced engineering effort by 50%.</p>
+    </div>
+    <div class="highlight-card">
+      <div class="icon">🤝</div>
+      <h4>Partner Enablement</h4>
+      <p>Experience enabling SI partner teams with playbooks, training, architecture guidance, and reusable assets.</p>
+    </div>
+    <div class="highlight-card">
+      <div class="icon">🏗️</div>
+      <h4>Enterprise Architecture</h4>
+      <p>End-to-end Salesforce architecture across Public Sector, Financial Services, Health, and Telco.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== EXPERIENCE ===== -->
+<section id="experience">
+  <div class="reveal">
+    <div class="section-label">// Experience</div>
+    <h2 class="section-title">Where I've Made Impact</h2>
+    <p class="section-subtitle">A decade of building, leading, and delivering across enterprise cloud ecosystems.</p>
+  </div>
+
+  <div class="timeline">
+
+    <!-- Synaptic -->
+    <div class="timeline-item reveal">
+      <div class="timeline-header">
+        <span class="timeline-company">Synaptic Advisors</span>
+        <span class="timeline-date">Aug 2023 — Present</span>
+      </div>
+      <div class="timeline-role">Director, Technical Architect · Remote, NJ</div>
+      <ul class="timeline-bullets">
+        <li>Collaborate with federal and state agencies on modernization roadmaps, translating complex public sector requirements into scalable Salesforce solutions aligned with compliance standards.</li>
+        <li>Lead and enable a team of architects across multiple SI partner implementations, providing architecture guidance, technical training, and delivery quality oversight.</li>
+        <li>Built structured partner enablement assets including implementation playbooks, migration guides, and hands-on labs for teams transitioning to Salesforce Industry Clouds.</li>
+        <li>Architected an internal AI-powered migration tool (Python, FastAPI, LLMs) that reduced partner onboarding effort by 50% and accelerated cloud-to-cloud migration delivery.</li>
+        <li>Lead pre-sales activities including RFP responses, solution presentations, and client demos, articulating proposed architectures and value propositions to executive stakeholders.</li>
+        <li>Serve as OmniStudio SME for DDWA, designing and building reusable OmniStudio packages and accelerators adopted across partner delivery teams.</li>
+        <li>Led Wyoming State's migration to Public Sector Solutions (PSS), delivering end-to-end architecture and partner enablement for a compliant, scalable implementation.</li>
+      </ul>
+      <div class="timeline-clients">
+        <span class="client-tag">HUD</span>
+        <span class="client-tag">FDIC</span>
+        <span class="client-tag">Wyoming State</span>
+        <span class="client-tag">DDWA</span>
+      </div>
+    </div>
+
+    <!-- Salesforce -->
+    <div class="timeline-item reveal">
+      <div class="timeline-header">
+        <span class="timeline-company">Salesforce</span>
+        <span class="timeline-date">Jul 2020 — Aug 2023</span>
+      </div>
+      <div class="timeline-role">Senior Principal Architect · Remote, NJ</div>
+      <ul class="timeline-bullets">
+        <li>Delivered high-impact technical architecture and enablement across public sector and financial services domains, directly supporting SI partner delivery readiness for regulated environments.</li>
+        <li>Spearheaded AI/ML integration in customer analytics and reporting platforms, aligning product capabilities with partner go-to-market initiatives.</li>
+        <li>Conducted platform and performance assessments with executive stakeholders, providing strategic recommendations that informed partner enablement roadmaps.</li>
+        <li>Developed reusable API-driven full-stack solutions (Apex, LWC, Node.js) and contributed knowledge base articles adopted by partner and internal teams.</li>
+        <li>Collaborated cross-functionally with Product, Engineering, Customer Success, and Partner teams to ensure solution alignment with product launches and market priorities.</li>
+      </ul>
+      <div class="timeline-clients">
+        <span class="client-tag">SBA ($14B SVOG)</span>
+        <span class="client-tag">NTIA ($42B Broadband)</span>
+        <span class="client-tag">Key Bank</span>
+        <span class="client-tag">Edward Jones</span>
+        <span class="client-tag">Emblemhealth</span>
+        <span class="client-tag">Citi Bank</span>
+        <span class="client-tag">Blue Cross MA</span>
+      </div>
+    </div>
+
+    <!-- Vlocity -->
+    <div class="timeline-item reveal">
+      <div class="timeline-header">
+        <span class="timeline-company">Vlocity</span>
+        <span class="timeline-date">Oct 2017 — Jul 2020</span>
+      </div>
+      <div class="timeline-role">Senior Architect — Expert Services Team · Remote, NJ</div>
+      <ul class="timeline-bullets">
+        <li>Served as a key member of the Expert Services team, acting as the primary liaison between clients, Product Management, and Engineering to capture feedback, drive product enhancements, and ensure alignment between customer needs and platform roadmap.</li>
+        <li>Engaged directly with enterprise clients across Telco, Finance, and Public Sector verticals to gather implementation feedback, identify gaps, and translate requirements into actionable product improvements.</li>
+        <li>Facilitated cross-functional collaboration between client stakeholders and Vlocity's product and engineering teams, ensuring engineering had clear context on customer pain points and enhancement priorities.</li>
+        <li>Led development teams building guided flows using OmniStudio tools (OmniScripts, FlexCards, Integration Procedures, DataRaptors), establishing reusable frameworks adopted across the partner ecosystem.</li>
+        <li>Guided red-account recovery and strategic roadmap design for large-scale digital transformation programs.</li>
+        <li>Created knowledge base articles, custom LWC component libraries, and implementation playbooks for internal and partner team reuse.</li>
+      </ul>
+      <div class="timeline-clients">
+        <span class="client-tag">Tufts</span>
+        <span class="client-tag">Humana</span>
+        <span class="client-tag">Verizon</span>
+        <span class="client-tag">Visible</span>
+        <span class="client-tag">Telstra</span>
+        <span class="client-tag">Telus</span>
+        <span class="client-tag">Emblemhealth</span>
+      </div>
+    </div>
+
+    <!-- Infosys -->
+    <div class="timeline-item reveal">
+      <div class="timeline-header">
+        <span class="timeline-company">Infosys</span>
+        <span class="timeline-date">Aug 2017 — Oct 2017</span>
+      </div>
+      <div class="timeline-role">Technology Analyst · New York, NY</div>
+      <ul class="timeline-bullets">
+        <li>Provided system assessments, roadmap recommendations, and process insights for enterprise clients, collaborating cross-functionally to ensure successful program execution.</li>
+      </ul>
+    </div>
+
+    <!-- Sooryen -->
+    <div class="timeline-item reveal">
+      <div class="timeline-header">
+        <span class="timeline-company">Sooryen Technologies</span>
+        <span class="timeline-date">Jul 2014 — May 2017</span>
+      </div>
+      <div class="timeline-role">Software Developer · Ahmedabad, India</div>
+      <ul class="timeline-bullets">
+        <li>Designed full-stack web and mobile applications with embedded financial workflows, delivering client-specific analytics platforms.</li>
+        <li>Architected a user accessibility testing web portal, saving $100K annually in third-party licensing costs.</li>
+        <li>Conducted daily code reviews and collaborated with UX teams and stakeholders during discovery and implementation phases.</li>
+        <li>Projects: Saveday, CafeLearn (LMS), 500 BC (Mobile), HotelBids.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects">
+  <div class="reveal">
+    <div class="section-label">// Notable Projects</div>
+    <h2 class="section-title">Public Sector at Scale</h2>
+    <p class="section-subtitle">Delivering mission-critical solutions for some of the largest government programs in the U.S.</p>
+  </div>
+
+  <div class="projects-grid">
+    <div class="project-card reveal reveal-delay-1">
+      <span class="badge">$14B in Grants</span>
+      <h3>SBA — SVOG</h3>
+      <p>AI/ML analytics and milestone reporting optimization for the Shuttered Venue Operators Grant program. Partner delivery coordination across SI ecosystem.</p>
+    </div>
+    <div class="project-card reveal reveal-delay-2">
+      <span class="badge">$42B in Grants</span>
+      <h3>Dept. of Commerce — NTIA Broadband</h3>
+      <p>End-to-end architecture and compliance-aligned solution delivery for the national broadband infrastructure program.</p>
+    </div>
+    <div class="project-card reveal reveal-delay-3">
+      <span class="badge">Child Welfare</span>
+      <h3>State of Indiana — CCWIS</h3>
+      <p>Full lifecycle architecture, KPI-aligned delivery, and cross-team enablement for the Comprehensive Child Welfare Information System.</p>
+    </div>
+    <div class="project-card reveal reveal-delay-4">
+      <span class="badge">Retirement Systems</span>
+      <h3>NYCERS</h3>
+      <p>Strategic platform enhancement for the New York City Employees' Retirement System.</p>
+    </div>
+    <div class="project-card reveal reveal-delay-5">
+      <span class="badge">Regulated Finance</span>
+      <h3>FDIC</h3>
+      <p>Architected the Failed Bank bidding experience, risk management, and compliance workflows in regulated environments.</p>
+    </div>
+    <div class="project-card reveal reveal-delay-1">
+      <span class="badge">Legacy Migration</span>
+      <h3>Verizon</h3>
+      <p>Multimillion-dollar legacy migration architecture and partner ecosystem coordination across multiple platforms.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills">
+  <div class="reveal">
+    <div class="section-label">// Technical Skills</div>
+    <h2 class="section-title">My Toolkit</h2>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-category reveal reveal-delay-1">
+      <h3>🏛️ Salesforce & Industry</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Public Sector Solutions</span>
+        <span class="skill-tag">OmniStudio</span>
+        <span class="skill-tag">Financial Services Cloud</span>
+        <span class="skill-tag">CPQ</span>
+        <span class="skill-tag">CRM Analytics</span>
+        <span class="skill-tag">Apex</span>
+        <span class="skill-tag">LWC</span>
+        <span class="skill-tag">Experience Cloud</span>
+        <span class="skill-tag">Missionforce</span>
+      </div>
+    </div>
+    <div class="skill-category reveal reveal-delay-2">
+      <h3>⚡ Engineering & DevOps</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">FastAPI</span>
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Angular</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">Heroku</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">AWS</span>
+        <span class="skill-tag">Copado</span>
+        <span class="skill-tag">Salesforce CLI</span>
+        <span class="skill-tag">Git</span>
+      </div>
+    </div>
+    <div class="skill-category reveal reveal-delay-3">
+      <h3>🤖 AI/ML & Analytics</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">LLM Integration</span>
+        <span class="skill-tag">Prompt Engineering</span>
+        <span class="skill-tag">GPT / Claude</span>
+        <span class="skill-tag">Embeddings</span>
+        <span class="skill-tag">Data Extraction</span>
+        <span class="skill-tag">Tableau</span>
+      </div>
+    </div>
+    <div class="skill-category reveal reveal-delay-4">
+      <h3>🎯 Leadership & Strategy</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Partner Enablement</span>
+        <span class="skill-tag">Pre-Sales & RFP</span>
+        <span class="skill-tag">Executive Engagement</span>
+        <span class="skill-tag">Program Governance</span>
+        <span class="skill-tag">Agile / Scrum</span>
+        <span class="skill-tag">Roadmap Development</span>
+        <span class="skill-tag">Cross-Functional Leadership</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== CERTIFICATIONS ===== -->
+<section id="certifications">
+  <div class="reveal">
+    <div class="section-label">// Certifications</div>
+    <h2 class="section-title">Credentials & Education</h2>
+  </div>
+
+  <div class="education-grid reveal reveal-delay-1" style="margin-bottom: 3rem;">
+    <div class="edu-card">
+      <div class="degree">Bachelor of Engineering</div>
+      <div class="school">Information & Technology — Gujarat Technological University</div>
+      <div class="year">Jun 2010 — Jul 2014</div>
+    </div>
+    <div class="edu-card">
+      <div class="degree">AI/Big Data Professional</div>
+      <div class="school">Ashland University</div>
+      <div class="year">Aug 2023</div>
+    </div>
+  </div>
+
+  <div class="certs-grid">
+    <div class="cert-item reveal reveal-delay-1">
+      <div class="cert-icon">☁️</div>
+      <h4>Salesforce Certified OmniStudio Developer</h4>
+    </div>
+    <div class="cert-item reveal reveal-delay-1">
+      <div class="cert-icon">⚙️</div>
+      <h4>Salesforce Certified Administrator</h4>
+    </div>
+    <div class="cert-item reveal reveal-delay-2">
+      <div class="cert-icon">☁️</div>
+      <h4>Salesforce Certified OmniStudio Consultant</h4>
+    </div>
+    <div class="cert-item reveal reveal-delay-2">
+      <div class="cert-icon">🏗️</div>
+      <h4>Salesforce Certified Heroku Architecture Designer</h4>
+    </div>
+    <div class="cert-item reveal reveal-delay-3">
+      <div class="cert-icon">🤖</div>
+      <h4>Salesforce Certified AI Associate</h4>
+    </div>
+    <div class="cert-item reveal reveal-delay-3">
+      <div class="cert-icon">📦</div>
+      <h4>Industries CPQ Developer</h4>
+    </div>
+    <div class="cert-item reveal reveal-delay-4">
+      <div class="cert-icon">🏛️</div>
+      <h4>Public Sector Foundations (PSS)</h4>
+    </div>
+    <div class="cert-item reveal reveal-delay-4">
+      <div class="cert-icon">🔄</div>
+      <h4>Scrum Master</h4>
+    </div>
+    <div class="cert-item reveal reveal-delay-5">
+      <div class="cert-icon">🚀</div>
+      <h4>Copado Certified Fundamentals</h4>
+    </div>
+    <div class="cert-item reveal reveal-delay-5">
+      <div class="cert-icon">📊</div>
+      <h4>Tableau Desktop Specialist</h4>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== AWARDS ===== -->
+<section id="awards">
+  <div class="reveal">
+    <div class="section-label">// Recognition</div>
+    <h2 class="section-title">Awards</h2>
+  </div>
+  <div class="awards-list">
+    <div class="award-item reveal reveal-delay-1">
+      <span class="award-year">2022</span>
+      <h4>Salesforce Mission Impossible & Agility Award Winner</h4>
+    </div>
+    <div class="award-item reveal reveal-delay-2">
+      <span class="award-year">2018</span>
+      <h4>Salesforce/Vlocity Rockstar Developer of the Year</h4>
+    </div>
+    <div class="award-item reveal reveal-delay-3">
+      <span class="award-year">2016</span>
+      <h4>Sooryen Technologies — Shine Award Winner</h4>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="reveal">
+    <div class="section-label">// Get in Touch</div>
+    <h2 class="section-title">Let's Connect</h2>
+    <p class="section-subtitle" style="margin: 0 auto 2rem;">
+      Interested in working together or have questions? Reach out anytime.
+    </p>
+  </div>
+  <div class="contact-links reveal reveal-delay-1">
+    <a href="mailto:kashshah43@gmail.com" class="contact-link">
+      ✉️ kashshah43@gmail.com
+    </a>
+    <a href="tel:+19083427136" class="contact-link">
+      📞 +1 (908) 342-7136
+    </a>
+    <a href="https://www.linkedin.com/in/kashshah43" target="_blank" rel="noopener" class="contact-link">
+      💼 LinkedIn Profile
+    </a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>© 2026 Kashish Shah. Built with purpose.</p>
+</footer>
+
+<script>
+  // === Nav scroll effect ===
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // === Mobile nav toggle ===
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('open');
+    const spans = toggle.querySelectorAll('span');
+    if (links.classList.contains('open')) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+    } else {
+      spans[0].style.transform = 'none';
+      spans[1].style.opacity = '1';
+      spans[2].style.transform = 'none';
+    }
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.querySelectorAll('span').forEach(s => { s.style.transform = 'none'; s.style.opacity = '1'; });
+    });
+  });
+
+  // === Scroll reveal ===
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // === Project card mouse glow ===
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100) + '%');
+      card.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100) + '%');
+    });
+  });
+
+  // === Stat counter animation ===
+  function animateCounters() {
+    document.querySelectorAll('.stat h3').forEach(el => {
+      const text = el.textContent;
+      const num = parseFloat(text.replace(/[^0-9.]/g, ''));
+      if (isNaN(num)) return;
+      const suffix = text.replace(/[0-9.]/g, '');
+      const prefix = text.match(/^[^0-9.]*/)[0];
+      let start = 0;
+      const duration = 2000;
+      const startTime = performance.now();
+      function update(time) {
+        const progress = Math.min((time - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 4);
+        const current = Math.round(eased * num);
+        el.textContent = prefix + current + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    });
+  }
+
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounters();
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  const heroStats = document.querySelector('.hero-stats');
+  if (heroStats) statsObserver.observe(heroStats);
+</script>
+
+</body>
+</html>
