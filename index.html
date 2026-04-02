@@ -810,6 +810,62 @@
       color: var(--accent);
     }
 
+    /* ===== HOBBIES ===== */
+    .hobbies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .hobby-card {
+      padding: 2rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      transition: all 0.4s var(--ease-out-expo);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hobby-card:hover {
+      border-color: var(--border-light);
+      transform: translateY(-6px);
+    }
+
+    .hobby-card .hobby-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .hobby-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .hobby-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .hobby-card .hobby-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+      font-size: 0.82rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      transition: all 0.3s;
+    }
+
+    .hobby-card .hobby-link:hover {
+      gap: 0.7rem;
+    }
+
     /* ===== CONTACT ===== */
     #contact {
       text-align: center;
@@ -918,10 +974,10 @@
   </div>
   <div class="hero-inner">
   <div class="hero-content">
-    <!-- <div class="hero-tag">
+    <div class="hero-tag">
       <span class="dot"></span>
       U.S. Citizen &middot; Available for opportunities
-    </div> -->
+    </div>
     <h1>
       Hi, I'm <span class="gradient">Kashish Shah</span>.<br>
       I build the future of<br>public sector tech.
@@ -1332,6 +1388,36 @@
 
 <div class="section-divider"></div>
 
+<!-- ===== BEYOND WORK ===== -->
+<section id="hobbies">
+  <div class="reveal">
+    <div class="section-label">// Beyond Work</div>
+    <h2 class="section-title">When I'm Not Architecting</h2>
+    <p class="section-subtitle">Life outside the Salesforce ecosystem — sports, travel, and a serious coffee habit.</p>
+  </div>
+
+  <div class="hobbies-grid">
+    <div class="hobby-card reveal reveal-delay-1">
+      <span class="hobby-icon">🏏</span>
+      <h3>Sports Enthusiast</h3>
+      <p>Cricket is my first love, but I'm equally competitive on the pickleball court, table tennis table, and badminton net. Always up for a game.</p>
+    </div>
+    <div class="hobby-card reveal reveal-delay-2">
+      <span class="hobby-icon">☕</span>
+      <h3>Coffee Nerd</h3>
+      <p>I travel to different cities and countries specifically to hunt down the best local cafés and specialty roasters. Pour-overs, espressos, cold brews — I've tried them all and have strong opinions about each.</p>
+    </div>
+    <div class="hobby-card reveal reveal-delay-3">
+      <span class="hobby-icon">📸</span>
+      <h3>Travel & Photography</h3>
+      <p>I love exploring new places and capturing them through my lens. From mountain landscapes to hidden coffee shops, I document it all on my Instagram page.</p>
+      <a href="https://www.instagram.com/savorwithshahs" target="_blank" rel="noopener" class="hobby-link">@SavorWithShahs →</a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
 <!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="reveal">
@@ -1351,25 +1437,28 @@
     <a href="https://www.linkedin.com/in/kashshah43" target="_blank" rel="noopener" class="contact-link">
       💼 LinkedIn Profile
     </a>
+    <a href="https://www.instagram.com/savorwithshahs" target="_blank" rel="noopener" class="contact-link">
+      📷 @SavorWithShahs
+    </a>
   </div>
 </section>
 
 <!-- ===== FOOTER ===== -->
 <footer>
-  <p>© 2026 Kashish Shah. Built with purpose.</p>
+  <p>&copy; 2026 Kashish Shah. Built with purpose.</p>
 </footer>
 
 <script>
   // === Nav scroll effect ===
   const nav = document.querySelector('nav');
-  window.addEventListener('scroll', () => {
+  window.addEventListener('scroll', function() {
     nav.classList.toggle('scrolled', window.scrollY > 50);
   });
 
   // === Mobile nav toggle ===
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
-  toggle.addEventListener('click', () => {
+  toggle.addEventListener('click', function() {
     links.classList.toggle('open');
     const spans = toggle.querySelectorAll('span');
     if (links.classList.contains('open')) {
@@ -1384,28 +1473,33 @@
   });
 
   // Close mobile menu on link click
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    a.addEventListener('click', () => {
+  document.querySelectorAll('.nav-links a').forEach(function(a) {
+    a.addEventListener('click', function() {
       links.classList.remove('open');
-      toggle.querySelectorAll('span').forEach(s => { s.style.transform = 'none'; s.style.opacity = '1'; });
+      toggle.querySelectorAll('span').forEach(function(s) {
+        s.style.transform = 'none';
+        s.style.opacity = '1';
+      });
     });
   });
 
   // === Scroll reveal ===
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
       }
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    observer.observe(el);
+  });
 
   // === Project card mouse glow ===
-  document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
+  document.querySelectorAll('.project-card').forEach(function(card) {
+    card.addEventListener('mousemove', function(e) {
+      var rect = card.getBoundingClientRect();
       card.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100) + '%');
       card.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100) + '%');
     });
@@ -1413,19 +1507,18 @@
 
   // === Stat counter animation ===
   function animateCounters() {
-    document.querySelectorAll('.stat h3').forEach(el => {
-      const text = el.textContent;
-      const num = parseFloat(text.replace(/[^0-9.]/g, ''));
+    document.querySelectorAll('.stat h3').forEach(function(el) {
+      var text = el.textContent;
+      var num = parseFloat(text.replace(/[^0-9.]/g, ''));
       if (isNaN(num)) return;
-      const suffix = text.replace(/[0-9.]/g, '');
-      const prefix = text.match(/^[^0-9.]*/)[0];
-      let start = 0;
-      const duration = 2000;
-      const startTime = performance.now();
+      var suffix = text.replace(/[0-9.]/g, '');
+      var prefix = text.match(/^[^0-9.]*/)[0];
+      var duration = 2000;
+      var startTime = performance.now();
       function update(time) {
-        const progress = Math.min((time - startTime) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 4);
-        const current = Math.round(eased * num);
+        var progress = Math.min((time - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 4);
+        var current = Math.round(eased * num);
         el.textContent = prefix + current + suffix;
         if (progress < 1) requestAnimationFrame(update);
       }
@@ -1433,8 +1526,8 @@
     });
   }
 
-  const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+  var statsObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         animateCounters();
         statsObserver.unobserve(entry.target);
@@ -1442,9 +1535,8 @@
     });
   }, { threshold: 0.5 });
 
-  const heroStats = document.querySelector('.hero-stats');
+  var heroStats = document.querySelector('.hero-stats');
   if (heroStats) statsObserver.observe(heroStats);
 </script>
-
 </body>
 </html>
