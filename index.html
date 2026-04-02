@@ -713,6 +713,135 @@
 
     .skill-tag:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
 
+    /* ===== AI TOOLS ===== */
+    .tools-showcase {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .tool-featured {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s var(--ease-out-expo);
+    }
+
+    .tool-featured::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 4px;
+      background: var(--gradient-1);
+    }
+
+    .tool-featured:hover {
+      border-color: var(--border-light);
+      transform: translateY(-4px);
+    }
+
+    .tool-featured .tool-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      background: var(--accent-dim);
+      padding: 0.3rem 0.8rem;
+      border-radius: 100px;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .tool-featured h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .tool-featured .tool-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      max-width: 700px;
+    }
+
+    .tool-pipeline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .tool-pipeline .pipe-step {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      padding: 0.35rem 0.8rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      transition: all 0.3s;
+    }
+
+    .tool-pipeline .pipe-step:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .tool-pipeline .pipe-arrow {
+      color: var(--accent);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .tool-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      transition: all 0.4s var(--ease-out-expo);
+    }
+
+    .tool-card:hover { border-color: var(--border-light); transform: translateY(-4px); }
+
+    .tool-card .tool-icon { font-size: 1.8rem; margin-bottom: 0.75rem; display: block; }
+
+    .tool-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
+
+    .tool-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .tool-card .tool-impact {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: var(--accent-dim);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+    }
+
     /* ===== CERTIFICATIONS ===== */
     .certs-grid {
       display: grid;
@@ -1231,6 +1360,67 @@
 
 <div class="section-divider"></div>
 
+<!-- ===== AI TOOLS & INNOVATION ===== -->
+<section id="tools">
+  <div class="reveal">
+    <div class="section-label">// AI Tools & Innovation</div>
+    <h2 class="section-title">Building Smarter with AI</h2>
+    <p class="section-subtitle">I don't just use AI — I build production tools with it that transform how teams deliver Salesforce solutions.</p>
+  </div>
+
+  <div class="tools-showcase">
+    <!-- Featured Tool -->
+    <div class="tool-featured reveal reveal-delay-1">
+      <div class="tool-label">&#x2728; Featured Build</div>
+      <h3>End-to-End Salesforce Delivery Pipeline — Powered by Claude</h3>
+      <p class="tool-desc">
+        Built a complete AI-powered pipeline that covers the full Salesforce delivery lifecycle — from requirement gathering
+        and user story generation, through solution design and architecture recommendations, to code generation, testing,
+        and deployment automation. The tool uses Claude to interpret business requirements, generate Apex/LWC code scaffolds,
+        create test classes, and produce deployment-ready packages — dramatically compressing sprint cycles and reducing
+        manual effort across the entire SDLC.
+      </p>
+      <div class="tool-pipeline">
+        <span class="pipe-step">&#x1F4CB; Requirements</span>
+        <span class="pipe-arrow">&rarr;</span>
+        <span class="pipe-step">&#x1F4DD; User Stories</span>
+        <span class="pipe-arrow">&rarr;</span>
+        <span class="pipe-step">&#x1F3D7;&#xFE0F; Architecture</span>
+        <span class="pipe-arrow">&rarr;</span>
+        <span class="pipe-step">&#x1F4BB; Code Gen</span>
+        <span class="pipe-arrow">&rarr;</span>
+        <span class="pipe-step">&#x2705; Testing</span>
+        <span class="pipe-arrow">&rarr;</span>
+        <span class="pipe-step">&#x1F680; Deployment</span>
+      </div>
+    </div>
+
+    <!-- Other Tools Grid -->
+    <div class="tools-grid">
+      <div class="tool-card reveal reveal-delay-2">
+        <span class="tool-icon">&#x1F916;</span>
+        <h4>LLM-Powered Migration Accelerator</h4>
+        <p>Python/FastAPI tool integrating GPT and Claude for automated code analysis, mapping, and migration from legacy clouds to Salesforce Industry Clouds.</p>
+        <span class="tool-impact">&darr; 50% onboarding effort</span>
+      </div>
+      <div class="tool-card reveal reveal-delay-3">
+        <span class="tool-icon">&#x1F50D;</span>
+        <h4>AI Quality & Reporting Checks</h4>
+        <p>Automated quality analysis tool that uses AI to review Salesforce configurations, flag issues, and improve reporting accuracy across implementations.</p>
+        <span class="tool-impact">&uarr; Reporting accuracy</span>
+      </div>
+      <div class="tool-card reveal reveal-delay-4">
+        <span class="tool-icon">&#x1F4E6;</span>
+        <h4>Reusable OmniStudio Packages</h4>
+        <p>Built and packaged reusable OmniStudio accelerators (OmniScripts, FlexCards, DataRaptors) adopted across multiple partner delivery teams.</p>
+        <span class="tool-impact">&darr; Implementation time</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
 <!-- ===== SKILLS ===== -->
 <section id="skills">
   <div class="reveal">
@@ -1449,19 +1639,19 @@
 </footer>
 
 <script>
-  // === Nav scroll effect ===
-  const nav = document.querySelector('nav');
+  // Nav scroll effect
+  var nav = document.querySelector('nav');
   window.addEventListener('scroll', function() {
     nav.classList.toggle('scrolled', window.scrollY > 50);
   });
 
-  // === Mobile nav toggle ===
-  const toggle = document.querySelector('.nav-toggle');
-  const links = document.querySelector('.nav-links');
+  // Mobile nav toggle
+  var toggle = document.querySelector('.nav-toggle');
+  var navLinks = document.querySelector('.nav-links');
   toggle.addEventListener('click', function() {
-    links.classList.toggle('open');
-    const spans = toggle.querySelectorAll('span');
-    if (links.classList.contains('open')) {
+    navLinks.classList.toggle('open');
+    var spans = toggle.querySelectorAll('span');
+    if (navLinks.classList.contains('open')) {
       spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
       spans[1].style.opacity = '0';
       spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
@@ -1475,7 +1665,7 @@
   // Close mobile menu on link click
   document.querySelectorAll('.nav-links a').forEach(function(a) {
     a.addEventListener('click', function() {
-      links.classList.remove('open');
+      navLinks.classList.remove('open');
       toggle.querySelectorAll('span').forEach(function(s) {
         s.style.transform = 'none';
         s.style.opacity = '1';
@@ -1483,7 +1673,7 @@
     });
   });
 
-  // === Scroll reveal ===
+  // Scroll reveal
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
@@ -1491,12 +1681,9 @@
       }
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
 
-  document.querySelectorAll('.reveal').forEach(function(el) {
-    observer.observe(el);
-  });
-
-  // === Project card mouse glow ===
+  // Project card mouse glow
   document.querySelectorAll('.project-card').forEach(function(card) {
     card.addEventListener('mousemove', function(e) {
       var rect = card.getBoundingClientRect();
@@ -1505,7 +1692,7 @@
     });
   });
 
-  // === Stat counter animation ===
+  // Stat counter animation
   function animateCounters() {
     document.querySelectorAll('.stat h3').forEach(function(el) {
       var text = el.textContent;
@@ -1534,7 +1721,6 @@
       }
     });
   }, { threshold: 0.5 });
-
   var heroStats = document.querySelector('.hero-stats');
   if (heroStats) statsObserver.observe(heroStats);
 </script>
